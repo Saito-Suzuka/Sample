@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>practice1</title>
+    <link rel="stylesheet" type="text/css" href="css/practice.css">
+</head>
+<body>
+<div id="practice">
+    <!-- chapter1 -->
+    <div id="chapter-1">
+        <!-- 復習 -->
+        <div>
+            <p>{{ comment }}</p> <!--テキストのバインディング -->
+            <ol>
+                <li v-for="fruit in fruits">{{ fruit }}</li> <!-- for文を使用して配列を表示 -->
+            </ol>
+            <ol>
+                <li v-for="animal in animals"> <!-- 連想配列を表示 -->
+                    {{ animal.id }}
+                    {{ animal.name }}
+                    {{ animal.size }}
+                    <span v-if="animal.size == 'large'" v-bind:class="color">でかい</span>
+                </li>
+            </ol>
+            <div>
+                <button v-on:click="alert">call alert</button> <!-- 関数の呼び出し -->
+            </div><br>
+            <div>
+                <input type="text" v-model="text"> <!-- フォーム入力と同期（dataの値も書きかえられる） -->
+                <p>{{ text }}</p>
+            </div>
+            <div>
+                <button v-on:click="ok = !ok"> <!-- true/falseの切り替え -->
+                    click me
+                </button>
+                <p v-if="ok">{{ comment }}</p> <!-- 条件分岐 -->
+                <p v-show></p>
+            </div>
+        </div>
+    </div><br>
+
+    <!-- chapter2 -->
+    <div id="chapter-2">
+        <div>
+            <button v-on:click = "addNum">increase</button>
+            <span v-for="star in count">★</span>
+            <p>counting starts: {{count}}</p>
+        </div>
+        <div><!-- ボタン押下でclassのtrue/falseを切り替え。　 -->
+            <button v-on:click="addColor = !addColor">Change text color</button>
+            <p v-bind:class ="{color:addColor}">Change Color</p><!-- 'color'というclassの存在を切り替え -->
+            <p>Static Color</p>
+        </div>
+        <div><!-- ボタン押下でクラスを追加するメソッドの呼び出し -->
+            <button v-on:click="addClass">Add Class function</button>
+            <!-- 初期値は''のためクラスがない。メソッドが実行されcssセレクターが追加され、classが反映される-->
+            <p v-bind:class="addColor2">Change Color</p>
+        </div>
+        <div>
+            <input type="text" v-model:value="name">
+            <button v-on:click="addMonster">ポケモンを追加</button>
+            <ol>
+                <li v-for="(monster, index) in monsters">
+                    <div>{{ monster.name }} hp:{{ monster.hp }}
+                        <button v-on:click="deleteMonster(index)">ポケモンを削除</button>
+                        <button v-on:click="attackMonster(index)">攻撃する</button>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <pre>{{ $data }}</pre>
+        <div v-bind:text-content.prop="message">prop</div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="js/practice1.js"></script>
+</body>
+</html>
