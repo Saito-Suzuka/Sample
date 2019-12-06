@@ -38,7 +38,7 @@
                 <p v-show></p>
             </div>
         </div>
-    </div><br>
+    </div><hr>
 
     <!-- chapter2 -->
     <div id="chapter-2">
@@ -71,6 +71,48 @@
         </div>
         <pre>{{ $data }}</pre>
         <div v-bind:text-content.prop="message">prop</div>
+    </div><hr>
+
+    <div id="practice-1">
+        <h3>配列とオブジェクト</h3>
+        <h4>配列</h4>
+        <pre>fruits: {{ fruits }}</pre>
+        <ol>
+            <li v-for="fruit in fruits"> {{ fruit }} </li>
+        </ol>
+        <pre>apples: {{ apples }}</pre>
+        <ol>
+            <li v-for="apple in apples"> {{ apple }} </li>
+        </ol>
+
+        <h4>配列の中にオブジェクト</h4>
+        <pre>apples2: {{ apples2 }}</pre>
+        <ol>v-for="apple in apples2"
+            <li v-for="apple in apples2">
+                {{ apple }}
+                 apple.name = {{ apple.name }}
+                 apple.color = {{ apple.color }}
+                 apple.size = {{ apple.size }}
+            </li>
+        </ol>
+
+        <h4>オブジェクト</h4>
+        <p>紅玉: {{ 紅玉 }}</p>
+        <p>紅玉.id　{{ 紅玉.id }}</p>
+
+        <h4>オブジェクトの中に配列</h4>
+        <p>apple: {{ apple }}</p>
+        <p>apple.name: {{ apple.name }}</p>
+        <ul>v-for="value in apple"
+            <li v-for="value in apple">{{ value }}</li>
+        </ul>
+
+        <h4>オブジェクトのプロパティの値にオブジェクトを持たせる</h4>
+        <pre>apples3: {{ apples3 }}</pre>
+        <ol>v-for="apple in apples3"　オブジェクトの中のオブジェクトを回して出力
+            <li v-for="apple in apples3">{{ apple }}</li>
+        </ol>
+        <p>apples3.紅玉　{{ apples3.紅玉 }}</p>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>part1~8</title>
+    <style>
+        body {
+            display: flex;
+            lex-wrap: wrap;
+        }
+        .box {
+            height: 100px;
+            width: 100px;
+            background-color: skyblue;
+            cursor: pointer;
+            transition: 0.8s;
+            margin: 0 8px 8px 0;
+        }
+        .circle {
+            background-color: pink;
+            border-radius: 50%;
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="target1"></div>
+    <div class="box" id="target2"></div>
+    <div class="box" id="target3"></div>
+
+
+
+    <script>
+        'use strict';
+
+        const target1 =document.getElementById('target1');
+        const target2 =document.getElementById('target2');
+        const target3 =document.getElementById('target3');
+        //boxをクリックしたらクラスを追加する
+        target1.addEventListener('click', () => {
+            target1.classList.toggle('circle');
+        });
+        target2.addEventListener('click', () => {
+            target2.classList.toggle('circle');
+        });
+        target3.addEventListener('click', () => {
+            target3.classList.toggle('circle');
+        });
+    </script>
+</body>
+</html>
+
+<!--
+addEventListenerは「要素にイベントが走った時に行われる処理」
+jsは大文字小文字を判断するのでコーディングに注意する。
+style.　の次はキャメル CSSとの記述方と違うのでちゅいする。
+-->
